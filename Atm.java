@@ -35,16 +35,19 @@ public class Atm {
                 case 3:
                     callAtm.Deposit();
                     break;
+                case 4:
+                    callAtm.CheckingBalance();
+                    break;
                 case 5:
                     System.out.println("Quitting the Program:");
                     whileRunning = false;
                 default:
+                    System.out.println("Invalid Input");
                     break;
             }
         }
 
     }
-
 
     // The very first Menu for Login
     void Loginmenu() {
@@ -63,7 +66,6 @@ public class Atm {
         }
 
     }
-
 
     // The Main Menu for Cards
     void MainMenu() {
@@ -109,7 +111,6 @@ public class Atm {
         System.out.println("Your card number: " + card);
         System.out.println("Your Pin is: " + pin);
         System.out.println("Current Balance " + amount);
-
 
         System.out.println();
 
@@ -237,6 +238,54 @@ public class Atm {
         }
     }
 
+    // Checking Balance
+    void CheckingBalance() {
+        System.out.println("Enter card Number");
+        String cardNumber = sc.nextLine();
+
+        System.out.println(" Enter Pin ");
+        String pin = sc.nextLine();
+
+        boolean runner = true;
+
+        while (runner) {
+            if (account.containsKey(cardNumber)) {
+                if (account.get(cardNumber).pin.equals(pin)) {
+                    System.out.println();
+                    System.out.println("Credentials Matched");
+                    System.out.println();
+
+                    System.out.println("Current Balance is: " + (account.get(cardNumber).balance));
+                    System.out.println();
+
+                    System.out.println(" Do You wish to Go to Main Menu ");
+                    System.out.println("Yes or No");
+
+                    String cont = sc.nextLine();
+
+                    if (cont.charAt(0) == 'n' || cont.charAt(0) == 'N') {
+                        System.out.println("quitting program");
+                        runner = false;
+                        whileRunning = false;
+
+                    } else {
+                        runner = false;
+                        return;
+                    }
+
+                } else {
+                    System.out.println("**** Invalid Pin ****");
+                    System.out.println("Retype the Pin");
+                    pin = sc.nextLine();
+                }
+
+            } else {
+                System.out.println("Invalid Card Number");
+                System.out.println("Retype the card number");
+                cardNumber = sc.nextLine();
+            }
+        }
+    }
 }
 
 class Accounts {
@@ -248,7 +297,6 @@ class Accounts {
 
     Accounts(String name, String pin, Double balance, String cardNumber) {
 
-
         this.name = name;
         this.cardNumber = cardNumber;
         this.pin = pin;
@@ -256,3 +304,6 @@ class Accounts {
     }
 
 }
+
+
+//Completed
