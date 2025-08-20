@@ -1,26 +1,43 @@
 import java.util.*;
 
-
 public class Atm {
-//Main class main method
+    // Main class main method
 
     HashMap<String, Accounts> account = new HashMap<>();
-    //objects
+    // objects
     static Scanner sc = new Scanner(System.in);
     static Random rand = new Random();
     static Atm callAtm = new Atm();
 
-    
-    //main method that runs and calls
+    // while boolean to have the loop running till it stops
+
+    static boolean whileRunning = true;
+
+    // main method that runs and calls
     public static void main(String[] args) {
+
+        // ClassCaller
+        callAtm.Loginmenu();
         
-    //ClassCaller
-    callAtm.Loginmenu();
-    String loginReply = sc.nextLine();
+        while (whileRunning) {
+
+            callAtm.MainMenu();
+            int optionChosen = sc.nextInt();
+
+            switch (optionChosen) {
+                case 1:
+                    System.out.println("Currently Working");
+                    break;
+                case 4:
+                    whileRunning = false;
+                default:
+                    break;
+            }
+        }
 
     }
 
-    void Loginmenu(){
+    void Loginmenu() {
         System.out.println();
         System.out.println("====== Welcome to Atm App ======");
         System.out.println();
@@ -31,24 +48,25 @@ public class Atm {
 
         String reply = sc.nextLine();
 
-        if (reply.charAt(0) == 'n'|| reply.charAt(0) == 'N' ) {
+        if (reply.charAt(0) == 'n' || reply.charAt(0) == 'N') {
             Create();
         }
 
     }
 
-    void MainMenu(){
+    void MainMenu() {
         System.out.println("====== Welcome to Atm App ======");
         System.out.println();
         System.out.println("==== Chose one of the Option ====");
         System.out.println();
         System.out.println("1. Withdraw Money");
-        System.out.println("2. Deposit Money"); 
+        System.out.println("2. Deposit Money");
         System.out.println("3. Check Balance");
+        System.out.println("4. Quit Program");
 
     }
 
-    void Create(){
+    void Create() {
 
         String card = String.valueOf(10000000 + rand.nextInt(90000000));
 
@@ -67,8 +85,6 @@ public class Atm {
         System.out.println("Enter initial deposit: ");
         double amount = sc.nextDouble();
         System.out.println();
-    
-        
 
         account.put(card, new Accounts(name, pin, amount, card));
         System.out.println("✅ Card created!");
@@ -77,7 +93,6 @@ public class Atm {
         System.out.println("Your Pin is: " + pin);
         System.out.println("Current Balance " + amount);
 
-        
     }
 }
 
@@ -88,17 +103,12 @@ class Accounts {
     double balance;
     String cardNumber;
 
-    Accounts(String name, String pin, double balance, String cardNumber){
+    Accounts(String name, String pin, double balance, String cardNumber) {
 
         this.name = name;
         this.cardNumber = cardNumber;
         this.pin = pin;
         this.balance = balance;
     }
-    
+
 }
-
-
-
-
-
