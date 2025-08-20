@@ -32,6 +32,9 @@ public class Atm {
                 case 2:
                     callAtm.Withdraw();
                     break;
+                case 3:
+                    callAtm.Deposit();
+                    break;
                 case 5:
                     System.out.println("Quitting the Program:");
                     whileRunning = false;
@@ -140,13 +143,13 @@ public class Atm {
 
                     if (account.get(cardNumber).balance >= withdrawl) {
                         System.out.println();
-                        
+
                         System.out.println(withdrawl + " Disbursed Succesfully");
                         account.get(cardNumber).balance -= withdrawl;
 
                         System.out.println();
                         System.out.println("Remaining Balnce is: " + (account.get(cardNumber).balance));
-                        
+
                         System.out.println();
                         System.out.println(" Do You wish to Go to Main Menu ");
                         System.out.println("Yes or No");
@@ -154,6 +157,7 @@ public class Atm {
                         String cont = sc.nextLine();
                         if (cont.charAt(0) == 'n' || cont.charAt(0) == 'N') {
                             System.out.println("quitting program");
+                            runner = false;
                             whileRunning = false;
                         } else {
                             runner = false;
@@ -177,6 +181,59 @@ public class Atm {
             }
         }
     }
+
+    // Deposit System
+    void Deposit() {
+        System.out.println("Enter card Number");
+        String cardNumber = sc.nextLine();
+
+        System.out.println(" Enter Pin ");
+        String pin = sc.nextLine();
+
+        boolean runner = true;
+
+        while (runner) {
+            if (account.containsKey(cardNumber)) {
+                if (account.get(cardNumber).pin.equals(pin)) {
+                    System.out.println();
+                    System.out.println("Credentials Matched");
+                    System.out.println();
+                    System.out.println("Current Balance is: " + (account.get(cardNumber).balance));
+                    System.out.println("Enter amount to Add");
+                    Double amount = sc.nextDouble();
+                    sc.nextLine();
+
+                    account.get(cardNumber).balance += amount;
+
+                    System.out.println("New balance is:" + (account.get(cardNumber).balance));
+
+                    System.out.println();
+                    System.out.println(" Do You wish to Go to Main Menu ");
+                    System.out.println("Yes or No");
+
+                    String cont = sc.nextLine();
+                    if (cont.charAt(0) == 'n' || cont.charAt(0) == 'N') {
+                        System.out.println("quitting program");
+                        runner = false;
+                        whileRunning = false;
+                    } else {
+                        runner = false;
+                        return;
+                    }
+
+                } else {
+                    System.out.println("**** Invalid Pin ****");
+                    System.out.println("Retype the Pin");
+                    pin = sc.nextLine();
+                }
+            } else {
+                System.out.println("Invalid Card Number");
+                System.out.println("Retype the card number");
+                cardNumber = sc.nextLine();
+            }
+        }
+    }
+
 }
 
 class Accounts {
