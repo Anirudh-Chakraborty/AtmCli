@@ -45,6 +45,7 @@ public class Atm {
 
     }
 
+
     // The very first Menu for Login
     void Loginmenu() {
         System.out.println();
@@ -62,6 +63,7 @@ public class Atm {
         }
 
     }
+
 
     // The Main Menu for Cards
     void MainMenu() {
@@ -107,6 +109,7 @@ public class Atm {
         System.out.println("Your card number: " + card);
         System.out.println("Your Pin is: " + pin);
         System.out.println("Current Balance " + amount);
+
 
         System.out.println();
 
@@ -244,6 +247,7 @@ class Accounts {
     String cardNumber;
 
     Accounts(String name, String pin, Double balance, String cardNumber) {
+
 
         this.name = name;
         this.cardNumber = cardNumber;
