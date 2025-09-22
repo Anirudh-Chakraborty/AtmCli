@@ -1,0 +1,4 @@
+[
+  { "accountNumber": "1001", "pin": "1234", "balance": 5000.0 },
+  { "accountNumber": "1002", "pin": "5678", "balance": 3000.0 }
+]
