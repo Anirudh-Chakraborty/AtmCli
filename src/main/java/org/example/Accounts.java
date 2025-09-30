@@ -22,6 +22,7 @@ public class Accounts {
     public int getPassword() {
         return password;
     }
+
     public void setPassword(int password) {
         this.password = password;
     }
@@ -37,4 +38,5 @@ public class Accounts {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
 }
