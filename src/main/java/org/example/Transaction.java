@@ -5,19 +5,20 @@ import java.util.List;
 public class Transaction {
     private final AccountsService callAccountsService = new AccountsService();
 
-    public boolean Deposit(Accounts account,int amount) {
+    public void Deposit(Accounts account, int amount) {
         List<Accounts> accounts = callAccountsService.getAccounts();
         for (Accounts acc : accounts) {
             if (acc.getAccountNumber() == account.getAccountNumber()&& acc.getPassword()== account.getPassword()) {
                 acc.setBalance(acc.getBalance()+amount);
                 callAccountsService.saveAccounts(accounts);
-                return true;
+                System.out.println("Deposited " + amount + " to " + account.getAccountNumber());
+                System.out.println("New balance is " + acc.getBalance());
+                return;
             }
         }
-        return false;
     }
 
-    public boolean Withdraw(Accounts account, int amount) {
+    public void Withdraw(Accounts account, int amount) {
         List<Accounts> accounts = callAccountsService.getAccounts();
         for (Accounts acc : accounts) {
             if (acc.getAccountNumber() == account.getAccountNumber() && acc.getPassword() == account.getPassword()) {
@@ -25,22 +26,22 @@ public class Transaction {
                     acc.setBalance(acc.getBalance() - amount);
                     callAccountsService.saveAccounts(accounts);
                     System.out.println("Withdraw Success");
-                    return true;
+                    System.out.println("New Balance is " + acc.getBalance());
+                    return;
                 }else  {
-                    return false;
+                    return;
                 }
             }
         }
-        return false;
     }
-    public int CheckBalance(Accounts account) {
+    public void CheckBalance(Accounts account) {
         List<Accounts> accounts = callAccountsService.getAccounts();
         for (Accounts acc : accounts) {
             if (acc.getAccountNumber() == account.getAccountNumber() && acc.getPassword() == account.getPassword()) {
-                return acc.getBalance();
+                System.out.println("The Current Balance is: "+acc.getBalance());
+                return;
             }
         }
         System.out.println("Invalid");
-        return -1;
     }
 }

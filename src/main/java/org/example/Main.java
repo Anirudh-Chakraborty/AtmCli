@@ -16,7 +16,7 @@ public class Main {
 
     void start() {
         System.out.println("===== Welcome to ATM =====");
-    boolean going = true;
+        boolean going = true;
         while (going) {
             System.out.println("\nAre you a new user or existing user?");
             System.out.println("1. Existing User");
@@ -25,9 +25,9 @@ public class Main {
 
             int choice = sc.nextInt();
 
-            if (choice==2) {
+            if (choice == 2) {
                 creator.addAccount();
-            } else if (choice==1) {
+            } else if (choice == 1) {
                 System.out.print("Enter Account Number: ");
                 int accNumber = sc.nextInt();
 
@@ -50,7 +50,7 @@ public class Main {
                     System.out.println("❌ Invalid credentials, please try again.");
                 }
 
-            } else if (choice==3) {
+            } else if (choice == 3) {
                 System.out.println("👋 Thank you for using ATM!");
                 going = false;
             } else {
@@ -60,6 +60,7 @@ public class Main {
 
         sc.close();
     }
+
     void userMenu(Accounts accounts) {
         while (true) {
             System.out.println("\n===== ATM Menu =====");
@@ -75,19 +76,15 @@ public class Main {
             switch (option) {
                 case 1 -> creator.changePin();
                 case 2 -> {
-                    System.out.println("Amount to withdraw: ");
+                    System.out.println("Amount to Withdraw: ");
                     int withdraw = sc.nextInt();
                     transaction.Withdraw(accounts, withdraw);
-                    break;
                 }
-                case 3 ->
-                        {
-                            System.out.println("Amount to withdraw: ");
-
-                        int deposit = sc.nextInt();
-                        transaction.Deposit(accounts, deposit);
-                        break;
-                        }
+                case 3 -> {
+                    System.out.println("Amount to Deposit: ");
+                    int deposit = sc.nextInt();
+                    transaction.Deposit(accounts, deposit);
+                }
                 case 4 -> transaction.CheckBalance(accounts);
                 case 5 -> {
                     creator.deleteAccount();
