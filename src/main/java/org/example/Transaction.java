@@ -24,6 +24,7 @@ public class Transaction {
                 if (acc.getBalance() > amount) {
                     acc.setBalance(acc.getBalance() - amount);
                     callAccountsService.saveAccounts(accounts);
+                    System.out.println("Withdraw Success");
                     return true;
                 }else  {
                     return false;

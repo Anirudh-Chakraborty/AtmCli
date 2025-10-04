@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AccountsService {
 
-    private static final String File_Path = "src/main/resources/Accounts.json";
+    private static final String File_Path = "/Users/anirudhchakraborty/IdeaProjects/ATMCli/src/main/resources/accountes.json";
     private final Gson gson = new Gson();
 
     //Get accounts

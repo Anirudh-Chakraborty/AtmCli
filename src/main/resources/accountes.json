@@ -1,152 +1,158 @@
 [
   {
     "Name": "Anir",
+    "password": 1234,
     "accountNumber": 100001,
-    "pin": 1234,
-    "balance": 5000
+    "balance": 2000
   },
   {
     "Name": "Abhi",
+    "password": 2345,
     "accountNumber": 100002,
-    "pin": 5678,
     "balance": 3000
   },
   {
     "Name": "Riya",
+    "password": 4821,
     "accountNumber": 100003,
-    "pin": 4321,
     "balance": 7500
   },
   {
     "Name": "Karan",
+    "password": 9570,
     "accountNumber": 100004,
-    "pin": 8765,
     "balance": 6200
   },
   {
     "Name": "Meera",
+    "password": 6138,
     "accountNumber": 100005,
-    "pin": 1111,
     "balance": 4800
   },
   {
     "Name": "Vikram",
+    "password": 7245,
     "accountNumber": 100006,
-    "pin": 2222,
     "balance": 9100
   },
   {
     "Name": "Sneha",
+    "password": 8952,
     "accountNumber": 100007,
-    "pin": 3333,
     "balance": 1500
   },
   {
     "Name": "Amit",
+    "password": 3409,
     "accountNumber": 100008,
-    "pin": 4444,
     "balance": 3000
   },
   {
     "Name": "Tina",
+    "password": 7614,
     "accountNumber": 100009,
-    "pin": 5555,
     "balance": 4300
   },
   {
     "Name": "Rohit",
+    "password": 5286,
     "accountNumber": 100010,
-    "pin": 6666,
     "balance": 7900
   },
   {
     "Name": "Simran",
+    "password": 4392,
     "accountNumber": 100011,
-    "pin": 1212,
     "balance": 5100
   },
   {
     "Name": "Aditya",
+    "password": 1827,
     "accountNumber": 100012,
-    "pin": 3434,
     "balance": 6800
   },
   {
     "Name": "Priya",
+    "password": 9064,
     "accountNumber": 100013,
-    "pin": 5656,
     "balance": 2300
   },
   {
     "Name": "Dev",
+    "password": 2375,
     "accountNumber": 100014,
-    "pin": 7878,
     "balance": 9400
   },
   {
     "Name": "Anaya",
+    "password": 8531,
     "accountNumber": 100015,
-    "pin": 9898,
     "balance": 4100
   },
   {
     "Name": "Rohan",
+    "password": 6742,
     "accountNumber": 100016,
-    "pin": 1357,
     "balance": 7200
   },
   {
     "Name": "Isha",
+    "password": 3958,
     "accountNumber": 100017,
-    "pin": 2468,
     "balance": 3900
   },
   {
     "Name": "Kabir",
+    "password": 2184,
     "accountNumber": 100018,
-    "pin": 3691,
     "balance": 8100
   },
   {
     "Name": "Maya",
+    "password": 5479,
     "accountNumber": 100019,
-    "pin": 4812,
     "balance": 5600
   },
   {
     "Name": "Aryan",
+    "password": 6023,
     "accountNumber": 100020,
-    "pin": 5923,
     "balance": 4700
   },
   {
     "Name": "Neha",
+    "password": 1348,
     "accountNumber": 100021,
-    "pin": 6134,
     "balance": 3300
   },
   {
     "Name": "Siddharth",
+    "password": 4682,
     "accountNumber": 100022,
-    "pin": 7245,
     "balance": 8800
   },
   {
     "Name": "Anjali",
+    "password": 7259,
     "accountNumber": 100023,
-    "pin": 8356,
     "balance": 2600
   },
   {
     "Name": "Kunal",
+    "password": 8197,
     "accountNumber": 100024,
-    "pin": 9467,
     "balance": 6000
   },
   {
     "Name": "Rashmi",
+    "password": 9561,
     "accountNumber": 100025,
-    "pin": 1578,
     "balance": 7100
+  },
+  {
+    "Name": "Anirudh",
+    "password": 2311,
+    "accountNumber": 100026,
+    "balance": 7500
   }
 ]
