@@ -1,5 +1,6 @@
 package org.example;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -69,7 +70,8 @@ public class Main {
             System.out.println("3. Deposit Money");
             System.out.println("4. Check Balance");
             System.out.println("5. Delete Account");
-            System.out.println("6. Exit to Main Menu");
+            System.out.println("6. Transfer Money");
+            System.out.println("7. Exit to Main Menu");
 
             int option = sc.nextInt();
 
@@ -91,6 +93,14 @@ public class Main {
                     return; // back to main menu after deleting
                 }
                 case 6 -> {
+                    System.out.println("Enter Account Number Where You Want /n Send Money: ");
+                    int accountNumber = sc.nextInt();
+                    System.out.println("How Much Money would you like to send?");
+                    int sendMoney = sc.nextInt();
+                    transaction.transferMoney(accounts,accountNumber,sendMoney);
+
+                }
+                case 7 -> {
                     return; // exit to main menu
                 }
                 default -> System.out.println("❌ Invalid option. Try again.");

@@ -44,4 +44,47 @@ public class Transaction {
         }
         System.out.println("Invalid");
     }
+
+
+    public void transferMoney(Accounts from, int to, int amount) {
+        List<Accounts> accounts = callAccountsService.getAccounts();
+        Accounts sender = null;
+        Accounts receiver = null;
+
+        // Find sender and receiver in the accounts list
+        for (Accounts acc : accounts) {
+            if (acc.getAccountNumber() == from.getAccountNumber() && acc.getPassword()==from.getPassword()) {
+                sender = acc;
+            }
+            if (acc.getAccountNumber() == to) {
+                receiver = acc;
+            }
+        }
+
+        if (sender == null) {
+            System.out.println("Sender account not found or invalid credentials.");
+            return;
+        }
+
+        if (receiver == null) {
+            System.out.println("Receiver account not found.");
+            return;
+        }
+
+        if (sender.getBalance() < amount) {
+            System.out.println("Insufficient balance.");
+            return;
+        }
+
+        // Perform transfer
+        sender.setBalance(sender.getBalance() - amount);
+        receiver.setBalance(receiver.getBalance() + amount);
+
+        callAccountsService.saveAccounts(accounts);
+
+        System.out.println("Transfer successful!");
+        System.out.println("Sender new balance: " + sender.getBalance());
+        System.out.println("Receiver new balance: " + receiver.getBalance());
+    }
+
 }
